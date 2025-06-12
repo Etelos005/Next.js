@@ -1,5 +1,3 @@
-// components/Gallery.js
-import styles from '@/styles/Gallery.module.css'
 import GalleryItem from './GalleryItem'
 
 export default function Gallery() {
@@ -25,7 +23,7 @@ export default function Gallery() {
   ]
 
   return (
-    <section className={styles.gallery} id="services">
+    <section id="services" className="w-full bg-white py-14 px-6 flex flex-wrap justify-center gap-10">
       {items.map((item, index) => (
         <GalleryItem key={index} {...item} />
       ))}
