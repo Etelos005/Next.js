@@ -1,0 +1,44 @@
+.banner {
+  position: relative;
+  background-image: url('https://www.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-11-full.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bannerText {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px 60px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.bannerText h1 {
+  color: white;
+  font-size: 40px;
+  margin: 0;
+}
+
+.bannerSubtext {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 480px) {
+  .bannerText h1 {
+    font-size: 24px;
+  }
+
+  .bannerSubtext {
+    font-size: 14px;
+  }
+}
