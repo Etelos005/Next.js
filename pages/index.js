@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Banner from '@/components/Banner'
+import Gallery from '@/components/Gallery'
+import ContactForm from '@/components/ContactForm'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -10,6 +13,9 @@ export default function Home() {
       </Head>
       <Navbar />
       <Banner />
+      <Gallery />
+      <ContactForm />
+      <Footer />
     </>
   )
 }
