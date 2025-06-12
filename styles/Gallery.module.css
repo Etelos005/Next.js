@@ -1,0 +1,92 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.galleryItem {
+  width: 250px;
+  text-align: center;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.galleryItem p {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #000;
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modalContent {
+  background-color: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.modalContent img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modalContent p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+  font-weight: 500;
+}
+
+.close {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #004466;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.close:hover {
+  background-color: #00334d;
+}

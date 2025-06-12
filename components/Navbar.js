@@ -1,37 +1,39 @@
 import { useState } from 'react'
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-[#004466] shadow-md px-6 py-4 z-10 relative">
-      <div className="max-w-[1320px] mx-auto flex justify-between items-center">
-        <div className="text-white text-2xl font-bold">
-          <a href="/">Creo</a>
+    <nav className="bg-brand text-brand-text shadow-md relative z-10">
+      <div className="max-w-[1320px] mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold">Creo</div>
+
+        <div
+          className="flex flex-col gap-[5px] w-[25px] cursor-pointer md:hidden"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span className={`h-[3px] bg-brand-text rounded transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
+          <span className={`h-[3px] bg-brand-text rounded transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`h-[3px] bg-brand-text rounded transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
         </div>
 
-        <ul className="hidden md:flex gap-6">
-          <li><a className="text-white hover:text-yellow-400" href="/">Home</a></li>
-          <li><a className="text-white hover:text-yellow-400" href="#about">About</a></li>
-          <li><a className="text-white hover:text-yellow-400" href="#services">Services</a></li>
-          <li><a className="text-white hover:text-yellow-400" href="#contact-form">Contact</a></li>
+        <ul
+          className={`${
+            menuOpen ? 'flex' : 'hidden'
+          } md:flex absolute md:static top-full right-4 md:right-0 bg-brand md:bg-transparent flex-col md:flex-row items-start md:items-center w-[200px] md:w-auto gap-0 md:gap-6 rounded-b-lg md:rounded-none shadow-lg md:shadow-none z-50`}
+        >
+          {['Home', 'About', 'Services', 'Contact'].map((label, i) => (
+            <li key={i} className="w-full md:w-auto">
+              <a
+                href={label === 'Home' ? '/' : `#${label.toLowerCase()}`}
+                className="block w-full px-5 py-3 md:py-0 md:px-0 text-[16px] hover:text-brand-accent transition"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
-
-        <div className="md:hidden flex flex-col gap-1 cursor-pointer" onClick={() => setOpen(!open)}>
-          <span className={`w-6 h-[3px] bg-white transition-transform ${open ? 'rotate-45 translate-y-[6px]' : ''}`}></span>
-          <span className={`w-6 h-[3px] bg-white transition-opacity ${open ? 'opacity-0' : ''}`}></span>
-          <span className={`w-6 h-[3px] bg-white transition-transform ${open ? '-rotate-45 -translate-y-[6px]' : ''}`}></span>
-        </div>
       </div>
-
-      {open && (
-        <ul className="md:hidden absolute top-full left-0 w-full bg-[#004466] flex flex-col gap-2 p-4 rounded-b-lg shadow-lg z-20">
-          <li><a className="text-white hover:text-yellow-400 block py-2" href="/">Home</a></li>
-          <li><a className="text-white hover:text-yellow-400 block py-2" href="#about">About</a></li>
-          <li><a className="text-white hover:text-yellow-400 block py-2" href="#services">Services</a></li>
-          <li><a className="text-white hover:text-yellow-400 block py-2" href="#contact-form">Contact</a></li>
-        </ul>
-      )}
     </nav>
   )
 }
