@@ -11,11 +11,9 @@ export default function Home() {
       <Head>
         <title>Creo Project</title>
       </Head>
-      <Navbar />
       <Banner />
       <Gallery />
       <ContactForm />
-      <Footer />
     </>
   )
 }
