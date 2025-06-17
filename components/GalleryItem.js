@@ -10,7 +10,7 @@ export default function GalleryItem({ src, alt, text, desc }) {
         className="w-[250px] bg-[#f9f9f9] text-center p-5 rounded-xl shadow-md hover:scale-105 transition-transform cursor-pointer"
       >
         <img src={src} alt={alt} className="w-full h-[180px] object-cover rounded-lg" />
-        <p className="mt-3 font-medium text-black">{text}</p>
+        <p className={`${open ? 'mt-6' : 'mt-3'} font-medium text-black`}>{text}</p>
       </div>
 
       {open && (
@@ -36,3 +36,5 @@ export default function GalleryItem({ src, alt, text, desc }) {
     </>
   )
 }
+
+
