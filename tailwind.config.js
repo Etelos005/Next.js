@@ -7,11 +7,10 @@ module.exports = {
     extend: {
       colors: {
         primary: '#004466',
-        primaryDark: '#00334d',
-        textDark: '#333333',
-        textLight: '#666666',
+        primaryDark: '#002d3a',
+        accent: '#ffd479', 
         card: '#f9f9f9',
-        accent: '#ffcc00'
+        textDark: '#333333'
       },
       fontFamily: {
         sans: ['"Segoe UI"', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif']
