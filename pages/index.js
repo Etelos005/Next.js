@@ -16,7 +16,11 @@ export default function Home() {
         title="Welcome to the Basics"
         description="Learn how to build a simple, beautiful webpage using only HTML and CSS."
         backgroundImage="https://www.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-11-full.jpg"
+        titleColor="text-[#ffd479]"
+        descColor="text-white/85"
+        overlay="from-black/70 to-black/40"
       />
+
       
       <Gallery />
       <ContactForm />

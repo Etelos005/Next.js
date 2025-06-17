@@ -1,5 +1,5 @@
-import { LightBulbIcon, CodeBracketIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
 import Banner from '@/components/Banner'
+import { LightBulbIcon, CodeBracketIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
 
 export default function Services() {
   return (
@@ -8,6 +8,9 @@ export default function Services() {
         title="Our Services"
         description="Discover what we offer to help you grow your skills and deliver stunning digital experiences."
         backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+        titleColor="text-indigo-300"
+        descColor="text-slate-100"
+        overlay="from-indigo-900/80 to-black/40"
       />
 
       <section className="py-20 px-6 bg-gray-50">
