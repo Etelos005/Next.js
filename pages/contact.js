@@ -1,12 +1,8 @@
 import { useState } from 'react'
+import Banner from '@/components/Banner'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -38,19 +34,11 @@ export default function Contact() {
 
   return (
     <>
-      <div
-        className="bg-cover bg-center h-[400px] flex flex-col items-center justify-center text-center px-6 sm:px-0"
-        style={{
-          backgroundImage: `url('/Images/call operators.jpg')`
-        }}
-      >
-        <div className="bg-black/60 px-8 py-6 rounded-lg mb-4">
-          <h1 className="text-white text-4xl font-bold font-sans">Get in Touch</h1>
-        </div>
-        <div className="bg-white/70 text-[#333] font-sans px-6 py-4 rounded-md text-lg shadow-lg mt-4 sm:mt-0 max-w-[600px]">
-          Do you have a question or want to work together? Fill out the form and I’ll get back to you as soon as possible amigo!
-        </div>
-      </div>
+      <Banner
+        title="Get in Touch"
+        description="Do you have a question or want to work together? Fill out the form and I’ll get back to you as soon as possible amigo!"
+        backgroundImage="/Images/call operators.jpg"
+      />
 
       <section className="py-20 px-6 bg-gray-50 font-sans">
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md">

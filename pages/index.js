@@ -11,7 +11,13 @@ export default function Home() {
       <Head>
         <title>Creo Project</title>
       </Head>
-      <Banner />
+      
+      <Banner
+        title="Welcome to the Basics"
+        description="Learn how to build a simple, beautiful webpage using only HTML and CSS."
+        backgroundImage="https://www.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-11-full.jpg"
+      />
+      
       <Gallery />
       <ContactForm />
     </>

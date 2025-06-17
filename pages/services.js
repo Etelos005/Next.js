@@ -1,21 +1,14 @@
 import { LightBulbIcon, CodeBracketIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
+import Banner from '@/components/Banner'
 
 export default function Services() {
   return (
     <>
-      <div
-        className="bg-cover bg-center h-[400px] flex flex-col items-center justify-center text-center px-6 sm:px-0"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1498050108023-c5249f4df085')`
-        }}
-      >
-        <div className="bg-black/60 px-8 py-6 rounded-lg mb-4">
-          <h1 className="text-white text-4xl font-bold">Our Services</h1>
-        </div>
-        <div className="bg-white/70 text-gray-800 px-6 py-4 rounded-md text-lg shadow-lg mt-4 sm:mt-0 max-w-[600px]">
-          Discover what we offer to help you grow your skills and deliver stunning digital experiences.
-        </div>
-      </div>
+      <Banner
+        title="Our Services"
+        description="Discover what we offer to help you grow your skills and deliver stunning digital experiences."
+        backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+      />
 
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto text-center">
