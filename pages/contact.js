@@ -1,8 +1,34 @@
 import { useState } from 'react'
 import Banner from '@/components/Banner'
+import Gallery from '@/components/Gallery'
+
+const contactGalleryItems = [
+  {
+    src: '/Images/call operators.jpg',
+    alt: 'Support Team',
+    text: 'Always Here',
+    desc: 'Our team is ready to answer your questions anytime.'
+  },
+  {
+    src: '/Images/call operators.jpg',
+    alt: 'Workspace',
+    text: 'Creative Workspaces',
+    desc: 'Collaborating from dynamic and inspiring environments.'
+  },
+  {
+    src: '/Images/call operators.jpg',
+    alt: 'Response',
+    text: 'Quick Replies',
+    desc: 'Expect a reply within 24 hours guaranteed.'
+  }
+]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -26,10 +52,7 @@ export default function Contact() {
     e.preventDefault()
     const tempErrors = validate()
     setErrors(tempErrors)
-
-    if (Object.keys(tempErrors).length === 0) {
-      setSubmitted(true)
-    }
+    if (Object.keys(tempErrors).length === 0) setSubmitted(true)
   }
 
   return (
@@ -38,6 +61,9 @@ export default function Contact() {
         title="Get in Touch"
         description="Do you have a question or want to work together? Fill out the form and I’ll get back to you as soon as possible amigo!"
         backgroundImage="/Images/call operators.jpg"
+        titleColor="text-fuchsia-400"
+        descColor="text-white"
+        overlay="from-[#1f1f1f]/80 to-[#000]/50"
       />
 
       <section className="py-20 px-6 bg-gray-50 font-sans">
@@ -47,7 +73,7 @@ export default function Contact() {
           {submitted ? (
             <div className="flex justify-center">
               <p className="text-[#004466] text-lg font-semibold text-center animate-fade-in">
-                Thank you for your message! Enjoy your day and have a wonderful week! We will get back to you as soon as possible! 
+                Thank you for your message! Enjoy your day and have a wonderful week! We will get back to you as soon as possible!
               </p>
             </div>
           ) : (
@@ -103,6 +129,8 @@ export default function Contact() {
           )}
         </div>
       </section>
+
+      <Gallery items={contactGalleryItems} />
     </>
   )
 }

@@ -1,5 +1,31 @@
 import Banner from '@/components/Banner'
-import { LightBulbIcon, CodeBracketIcon, VideoCameraIcon } from '@heroicons/react/24/outline'
+import Gallery from '@/components/Gallery'
+import {
+  LightBulbIcon,
+  CodeBracketIcon,
+  VideoCameraIcon
+} from '@heroicons/react/24/outline'
+
+const servicesGalleryItems = [
+  {
+    src: '/Images/UiUx.avif',
+    alt: 'UI/UX Design',
+    text: 'UI/UX Showcase',
+    desc: 'A sneak peek into the world of user interface and experience design.'
+  },
+  {
+    src: '/Images/frontend.jpg',
+    alt: 'Frontend Dev',
+    text: 'Frontend Magic',
+    desc: 'Responsive and clean front-end structures with Tailwind and Next.js.'
+  },
+  {
+    src: '/Images/edits.avif',
+    alt: 'Multimedia Tools',
+    text: 'Editing Suite',
+    desc: 'Animation, post-production, and media design in action.'
+  }
+]
 
 export default function Services() {
   return (
@@ -8,9 +34,9 @@ export default function Services() {
         title="Our Services"
         description="Discover what we offer to help you grow your skills and deliver stunning digital experiences."
         backgroundImage="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-        titleColor="text-indigo-300"
-        descColor="text-slate-100"
-        overlay="from-indigo-900/80 to-black/40"
+        titleColor="text-[#00e4d4]"
+        descColor="text-white"
+        overlay="from-black/80 to-black/40"
       />
 
       <section className="py-20 px-6 bg-gray-50">
@@ -44,6 +70,8 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      <Gallery items={servicesGalleryItems} />
     </>
   )
 }
