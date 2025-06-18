@@ -13,6 +13,7 @@ export default function Gallery({ items }) {
               alt={item.alt}
               text={item.text}
               desc={item.desc}
+              priority={index === 0}
             />
           ))}
         </div>
