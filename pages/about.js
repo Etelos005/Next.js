@@ -7,7 +7,7 @@ const aboutGalleryItems = [
     src: '/Images/Aziz.jpg',
     alt: 'Aziz photo',
     text: 'Aziz',
-    desc: 'This is Aziz. He is the founder of a cafe called cafe abou Aziz for the middle-aged people.'
+    desc: 'This is Aziz. He is the founder of a cafe called cafe abou Aziz for the middled aged people.'
   },
   {
     src: '/Images/Jessica.jpeg',
@@ -17,24 +17,25 @@ const aboutGalleryItems = [
   },
   {
     src: '/Images/Taha.jpg',
-    alt: 'Taha Photo',
+    alt: 'Taha photo',
     text: 'Taha',
-    desc: 'Taha is a worker in a gas station and has a part-time job as security in a nearby nightclub.'
+    desc: 'Taha is a worker in a gas station and has a part time job security in a nearby nightclub.'
   }
 ]
 
 export default function About() {
-  const [selected, setSelected] = useState('All')
+  const [filter, setFilter] = useState('All')
 
-  const filteredItems = selected === 'All'
-    ? aboutGalleryItems
-    : aboutGalleryItems.filter(item => item.text === selected)
+  const filteredItems =
+    filter === 'All'
+      ? aboutGalleryItems
+      : aboutGalleryItems.filter((item) => item.text === filter)
 
   return (
     <>
       <Banner
         title="About Us"
-        description="Learn more about how to create a Next.js. Not only just that, how to apply Tailwind CSS on our project and link the pages together."
+        description="Learn more about how to create a Next.js. Not only just that, how to apply Tailwind Css on our project and link the pages together."
         backgroundImage="/Images/Q-marks.jpg"
         titleColor="text-amber-300"
         descColor="text-white/90"
@@ -48,26 +49,32 @@ export default function About() {
         </p>
       </section>
 
-      <section className="w-full bg-white py-16 px-4">
-        <div className="max-w-6xl mx-auto relative">
-          <h2 className="text-3xl font-semibold text-[#004466] text-center mb-10">
-            Gallery
-          </h2>
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-10">
+            <div className="w-1/3"></div>
 
-          <div className="absolute top-0 right-0">
-            <select
-              value={selected}
-              onChange={(e) => setSelected(e.target.value)}
-              className="border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#004466]"
-            >
-              <option value="All">All</option>
-              {aboutGalleryItems.map((item) => (
-                <option key={item.text} value={item.text}>{item.text}</option>
-              ))}
-            </select>
+            <h2 className="text-3xl font-semibold text-[#004466] text-center w-1/3">
+              Gallery
+            </h2>
+
+            <div className="w-1/3 flex justify-end">
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-md text-gray-700"
+              >
+                <option>All</option>
+                {aboutGalleryItems.map((item, index) => (
+                  <option key={index} value={item.text}>
+                    {item.text}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 mt-6">
+          <div className="flex flex-wrap justify-center gap-8">
             {filteredItems.map((item, index) => (
               <GalleryItem
                 key={index}
