@@ -24,11 +24,7 @@ const contactGalleryItems = [
 ]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -53,6 +49,15 @@ export default function Contact() {
     const tempErrors = validate()
     setErrors(tempErrors)
     if (Object.keys(tempErrors).length === 0) setSubmitted(true)
+  }
+
+  const [selectedOption, setSelectedOption] = useState('')
+  const [submittedOption, setSubmittedOption] = useState('')
+  const radioOptions = ['Collaboration', 'Job Offer', 'Freelance Request', 'Speaking Opportunity', 'Feedback']
+
+  const handleOptionSubmit = (e) => {
+    e.preventDefault()
+    if (selectedOption) setSubmittedOption(selectedOption)
   }
 
   return (
@@ -131,6 +136,43 @@ export default function Contact() {
       </section>
 
       <Gallery items={contactGalleryItems} />
+
+      <section className="bg-[#f4f8fb] py-16 px-4">
+        <div className="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md text-center">
+          <h2 className="text-2xl font-bold text-[#004466] mb-6">Choose Your Option</h2>
+
+          <form onSubmit={handleOptionSubmit} className="space-y-4">
+            {radioOptions.map((option, index) => (
+              <label key={index} className="flex items-center space-x-3 text-gray-800">
+                <input
+                  type="radio"
+                  name="contactOption"
+                  value={option}
+                  checked={selectedOption === option}
+                  onChange={() => setSelectedOption(option)}
+                  className="accent-[#004466] w-4 h-4"
+                />
+                <span>{option}</span>
+              </label>
+            ))}
+
+            <div className="pt-6 flex justify-center">
+              <button
+                type="submit"
+                className="bg-[#004466] text-white px-6 py-2 rounded-md hover:bg-[#00334d] transition"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+
+          {submittedOption && (
+            <p className="mt-6 text-blue-600 font-medium">
+              You selected: <span className="font-semibold">{submittedOption}</span>
+            </p>
+          )}
+        </div>
+      </section>
     </>
   )
 }
