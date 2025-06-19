@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { Pagination, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -32,15 +32,15 @@ export default function SwiperSection() {
         </h2>
 
         <Swiper
-          spaceBetween={30}
           slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-          }}
+          spaceBetween={30}
           pagination={{ clickable: true }}
-          modules={[Pagination]}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false
+          }}
+          loop={true}
+          modules={[Pagination, Autoplay]}
           className="!pb-12"
         >
           {slides.map((slide, index) => (
@@ -49,10 +49,10 @@ export default function SwiperSection() {
                 <img
                   src={slide.img}
                   alt={slide.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-[300px] sm:h-[400px] object-cover"
                 />
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold text-[#004466] mb-2">{slide.title}</h3>
+                  <h3 className="text-2xl font-semibold text-[#004466] mb-2">{slide.title}</h3>
                   <p className="text-gray-600 text-sm">{slide.desc}</p>
                 </div>
               </div>
