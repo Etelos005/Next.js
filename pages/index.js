@@ -2,9 +2,7 @@ import Head from 'next/head'
 import Banner from '@/components/Banner'
 import Gallery from '@/components/Gallery'
 import ContactForm from '@/components/ContactForm'
-import dynamic from 'next/dynamic'
-
-const HomeSlider = dynamic(() => import('@/components/HomeSlider'), { ssr: false })
+import SwiperSection from '@/components/SwiperSection'
 
 const galleryItems = [
   {
@@ -43,9 +41,10 @@ export default function Home() {
         overlay="from-black/60 to-black/30"
       />
 
-      <HomeSlider />
+      <SwiperSection />
       <Gallery items={galleryItems} />
       <ContactForm />
     </>
   )
 }
+
