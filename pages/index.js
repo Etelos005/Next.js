@@ -41,9 +41,9 @@ export default function Home() {
         overlay="from-black/60 to-black/30"
       />
 
-      <SwiperSection />
       <Gallery items={galleryItems} />
       <ContactForm />
+      <SwiperSection />
     </>
   )
 }
