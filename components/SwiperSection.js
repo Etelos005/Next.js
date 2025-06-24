@@ -1,10 +1,10 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
-import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const slides = [
   {
@@ -21,7 +21,18 @@ const slides = [
     title: 'Creative Media',
     desc: 'Motion graphics and animations that stand out.',
     img: '/Images/edits.avif'
-  }
+  },
+  {
+    title: 'Clean UI/UX',
+    desc: 'Elegant interfaces that are easy to navigate.',
+    img: '/Images/UiUx.avif'
+  },
+  {
+    title: 'Responsive Code',
+    desc: 'Adaptive layouts for all devices.',
+    img: '/Images/frontend.jpg'
+  },
+
 ]
 
 export default function SwiperSection() {
@@ -32,10 +43,10 @@ export default function SwiperSection() {
           Featured Highlights
         </h2>
 
-        <div className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-10 cursor-pointer w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow-md hover:bg-[#004466] hover:text-white transition duration-300">
+        <div className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 left-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition">
           ❮
         </div>
-        <div className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-10 cursor-pointer w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow-md hover:bg-[#004466] hover:text-white transition duration-300">
+        <div className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 right-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition">
           ❯
         </div>
 
@@ -44,45 +55,41 @@ export default function SwiperSection() {
           centeredSlides={true}
           slidesPerView={1}
           spaceBetween={20}
-          pagination={{ clickable: true }}
+          breakpoints={{
+            768: {
+              slidesPerView: 1.5
+            },
+            1024: {
+              slidesPerView: 2.8
+            }
+          }}
           navigation={{
             prevEl: '.swiper-button-prev-custom',
             nextEl: '.swiper-button-next-custom'
           }}
-          breakpoints={{
-            768: {
-              slidesPerView: 1.5,
-              spaceBetween: 30
-            },
-            1024: {
-              slidesPerView: 2.5,
-              spaceBetween: 40
-            },
-            1280: {
-              slidesPerView: 2.8,
-              spaceBetween: 40
-            }
-          }}
-          modules={[Pagination, Navigation]}
-          className="!pb-24"
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
+          className="!pb-20"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div
-                  className={`transition-all duration-500 mx-auto ${
+                  className={`transition-all duration-500 mx-auto w-full max-w-[480px] ${
                     isActive
-                      ? 'scale-105 shadow-2xl z-10'
-                      : 'scale-90 opacity-60 blur-[1px]'
-                  } w-full max-w-[500px]`}
+                      ? 'scale-105 z-10 shadow-xl'
+                      : 'scale-90 opacity-50 blur-[1px]'
+                  }`}
                 >
-                  <div className="bg-white rounded-xl overflow-hidden w-full">
-                    <img
-                      src={slide.img}
-                      alt={slide.title}
-                      className="w-full h-[400px] object-cover"
-                    />
-                    <div className="p-6 text-center">
+                  <div className="bg-white rounded-xl overflow-hidden">
+                    <div className="w-full aspect-[4/3]">
+                      <img
+                        src={slide.img}
+                        alt={slide.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-5 text-center">
                       <h3 className="text-xl sm:text-2xl font-semibold text-[#004466] mb-2">
                         {slide.title}
                       </h3>
@@ -97,7 +104,7 @@ export default function SwiperSection() {
 
         <style jsx global>{`
           .swiper-pagination {
-            margin-top: 20px;
+            margin-top: 24px;
             text-align: center;
           }
 
