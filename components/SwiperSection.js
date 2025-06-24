@@ -43,7 +43,7 @@ export default function SwiperSection() {
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
-          pagination={{ clickable: true }} 
+          pagination={{ clickable: true }}
           navigation={{
             prevEl: '.swiper-button-prev-custom',
             nextEl: '.swiper-button-next-custom'
@@ -72,6 +72,25 @@ export default function SwiperSection() {
           ))}
         </Swiper>
       </div>
+
+      <style jsx global>{`
+        .swiper-pagination-bullet {
+          background-color: #004466;
+          opacity: 0.4;
+          width: 10px;
+          height: 10px;
+          margin: 0 6px !important;
+          transition: all 0.3s ease;
+          border-radius: 50%;
+        }
+
+        .swiper-pagination-bullet-active {
+          background-color: #ffa500;
+          opacity: 1;
+          transform: scale(1.3);
+          box-shadow: 0 0 8px #ffa500; /* Glow effect */
+        }
+      `}</style>
     </section>
   )
 }
