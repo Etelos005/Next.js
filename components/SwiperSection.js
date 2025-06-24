@@ -1,7 +1,7 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation, Autoplay } from 'swiper/modules'
+import { Pagination, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -41,56 +41,78 @@ export default function SwiperSection() {
 
         <Swiper
           slidesPerView={1}
-          spaceBetween={30}
-          loop={true}
+          spaceBetween={20}
+          centeredSlides={true}
+          loop={false}
           pagination={{ clickable: true }}
           navigation={{
             prevEl: '.swiper-button-prev-custom',
             nextEl: '.swiper-button-next-custom'
           }}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false
+          breakpoints={{
+            768: {
+              slidesPerView: 1.5
+            },
+            1024: {
+              slidesPerView: 3
+            }
           }}
-          modules={[Pagination, Navigation, Autoplay]}
-          className="!pb-16"
+          modules={[Pagination, Navigation]}
+          className="!pb-20"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
-                <img
-                  src={slide.img}
-                  alt={slide.title}
-                  className="w-full h-[300px] sm:h-[400px] object-cover"
-                />
-                <div className="p-6 text-center">
-                  <h3 className="text-2xl font-semibold text-[#004466] mb-2">{slide.title}</h3>
-                  <p className="text-gray-600 text-sm">{slide.desc}</p>
+              {({ isActive }) => (
+                <div
+                  className={`transition-all duration-500 flex justify-center ${
+                    isActive
+                      ? 'scale-105 shadow-2xl z-10'
+                      : 'scale-90 opacity-60 blur-[1px]'
+                  }`}
+                >
+                  <div className="bg-white rounded-xl overflow-hidden max-w-[400px] w-full">
+                    <img
+                      src={slide.img}
+                      alt={slide.title}
+                      className="w-full h-[400px] object-cover rounded-t-xl"
+                    />
+                    <div className="p-6 text-center">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-[#004466] mb-2">
+                        {slide.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">{slide.desc}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <style jsx global>{`
+          .swiper-pagination {
+            margin-top: 20px;
+            text-align: center;
+          }
+
+          .swiper-pagination-bullet {
+            background-color: #004466;
+            opacity: 0.4;
+            width: 10px;
+            height: 10px;
+            margin: 0 6px !important;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+          }
+
+          .swiper-pagination-bullet-active {
+            background-color: #ffa500;
+            opacity: 1;
+            transform: scale(1.3);
+            box-shadow: 0 0 6px #ffa500;
+          }
+        `}</style>
       </div>
-
-      <style jsx global>{`
-        .swiper-pagination-bullet {
-          background-color: #004466;
-          opacity: 0.4;
-          width: 10px;
-          height: 10px;
-          margin: 0 6px !important;
-          transition: all 0.3s ease;
-          border-radius: 50%;
-        }
-
-        .swiper-pagination-bullet-active {
-          background-color: #ffa500;
-          opacity: 1;
-          transform: scale(1.3);
-          box-shadow: 0 0 8px #ffa500; 
-        }
-      `}</style>
     </section>
   )
 }
