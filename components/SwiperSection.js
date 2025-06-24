@@ -1,9 +1,10 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Autoplay } from 'swiper/modules'
+import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const slides = [
   {
@@ -25,23 +26,40 @@ const slides = [
 
 export default function SwiperSection() {
   return (
-    <section className="bg-[#f9fafb] py-20 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-[#f9fafb] py-20 px-4 relative">
+      <div className="max-w-6xl mx-auto relative">
         <h2 className="text-4xl font-bold text-center text-[#004466] mb-12">
           Featured Highlights
         </h2>
 
+        <div className="swiper-button-prev-custom absolute top-[50%] -translate-y-1/2 left-0 sm:left-4 z-10 cursor-pointer w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow-md hover:bg-[#004466] hover:text-white transition duration-300">
+          ❮
+        </div>
+
+        <div className="swiper-button-next-custom absolute top-[50%] -translate-y-1/2 right-0 sm:right-4 z-10 cursor-pointer w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow-md hover:bg-[#004466] hover:text-white transition duration-300">
+          ❯
+        </div>
+
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
-          pagination={{ clickable: true }}
+          loop={true}
+          pagination={{
+            clickable: true,
+            bulletClass: 'swiper-pagination-bullet-custom',
+            renderBullet: (_, className) =>
+              `<span class="${className}"></span>`
+          }}
+          navigation={{
+            prevEl: '.swiper-button-prev-custom',
+            nextEl: '.swiper-button-next-custom'
+          }}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false
           }}
-          loop={true}
-          modules={[Pagination, Autoplay]}
-          className="!pb-12"
+          modules={[Pagination, Navigation, Autoplay]}
+          className="!pb-20"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
@@ -60,6 +78,24 @@ export default function SwiperSection() {
           ))}
         </Swiper>
       </div>
+
+      <style jsx global>{`
+        .swiper-pagination-bullet-custom {
+          background-color: #004466;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          margin: 0 6px !important;
+          opacity: 0.4;
+          transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-custom.swiper-pagination-bullet-active {
+          background-color: #ffa500;
+          transform: scale(1.3);
+          opacity: 1;
+        }
+      `}</style>
     </section>
   )
 }
