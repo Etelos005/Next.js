@@ -43,10 +43,10 @@ export default function SwiperSection() {
           Featured Highlights
         </h2>
 
-        <div className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 left-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition">
+        <div className="swiper-button-prev-custom absolute top-1/2 -translate-y-1/2 left-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition cursor-pointer">
           ❮
         </div>
-        <div className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 right-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition">
+        <div className="swiper-button-next-custom absolute top-1/2 -translate-y-1/2 right-2 z-10 w-10 h-10 bg-white text-[#004466] flex items-center justify-center text-2xl rounded-full shadow hover:bg-[#004466] hover:text-white transition cursor-pointer">
           ❯
         </div>
 
