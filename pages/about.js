@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Banner from '@/components/Banner'
 import GalleryItem from '@/components/GalleryItem'
+import Accordion from '@/components/Accordion'
 
 const aboutGalleryItems = [
   {
@@ -85,6 +86,43 @@ export default function About() {
               />
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="relative px-6 py-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/Images/Thinking.jpg')"
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto p-6 rounded-lg z-10">
+          <h2 className="text-3xl font-semibold text-white mb-6 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <Accordion
+            items={[
+              {
+                title: 'What is this project about?',
+                content:
+                  'This project is a frontend demo built with Next.js and Tailwind CSS to apply everything learned with the one and only assistant Maria.'
+              },
+              {
+                title: 'What tools did you use?',
+                content:
+                  'Next.js for React framework, Tailwind CSS for styling, and various components such as Swiper for carousels and custom accordions for interactive elements.'
+              },
+              {
+                title: 'Is this project responsive?',
+                content:
+                  'Yes, it is built with responsiveness in mind using Tailwind’s utility classes to ensure mobile-friendly layouts and scalable design, mainly frontend without backend.'
+              }
+            ]}
+          />
         </div>
       </section>
     </>

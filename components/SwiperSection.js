@@ -88,7 +88,7 @@ export default function SwiperSection() {
           background-color: #ffa500;
           opacity: 1;
           transform: scale(1.3);
-          box-shadow: 0 0 8px #ffa500; /* Glow effect */
+          box-shadow: 0 0 8px #ffa500; 
         }
       `}</style>
     </section>
