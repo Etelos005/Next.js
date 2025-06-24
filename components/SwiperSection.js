@@ -27,7 +27,7 @@ const slides = [
 export default function SwiperSection() {
   return (
     <section className="bg-[#f9fafb] py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative">
         <h2 className="text-4xl font-bold text-center text-[#004466] mb-12">
           Featured Highlights
         </h2>
@@ -40,10 +40,10 @@ export default function SwiperSection() {
         </div>
 
         <Swiper
+          loop={true}
+          centeredSlides={true}
           slidesPerView={1}
           spaceBetween={20}
-          centeredSlides={true}
-          loop={false}
           pagination={{ clickable: true }}
           navigation={{
             prevEl: '.swiper-button-prev-custom',
@@ -51,30 +51,36 @@ export default function SwiperSection() {
           }}
           breakpoints={{
             768: {
-              slidesPerView: 1.5
+              slidesPerView: 1.5,
+              spaceBetween: 30
             },
             1024: {
-              slidesPerView: 3
+              slidesPerView: 2.5,
+              spaceBetween: 40
+            },
+            1280: {
+              slidesPerView: 2.8,
+              spaceBetween: 40
             }
           }}
           modules={[Pagination, Navigation]}
-          className="!pb-20"
+          className="!pb-24"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div
-                  className={`transition-all duration-500 flex justify-center ${
+                  className={`transition-all duration-500 mx-auto ${
                     isActive
                       ? 'scale-105 shadow-2xl z-10'
                       : 'scale-90 opacity-60 blur-[1px]'
-                  }`}
+                  } w-full max-w-[500px]`}
                 >
-                  <div className="bg-white rounded-xl overflow-hidden max-w-[400px] w-full">
+                  <div className="bg-white rounded-xl overflow-hidden w-full">
                     <img
                       src={slide.img}
                       alt={slide.title}
-                      className="w-full h-[400px] object-cover rounded-t-xl"
+                      className="w-full h-[400px] object-cover"
                     />
                     <div className="p-6 text-center">
                       <h3 className="text-xl sm:text-2xl font-semibold text-[#004466] mb-2">
