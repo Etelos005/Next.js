@@ -13,6 +13,7 @@ export default function Gallery({ items }) {
               alt={item.alt}
               text={item.text}
               desc={item.desc}
+              href={item.href}
               priority={index === 0}
             />
           ))}
