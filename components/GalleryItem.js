@@ -3,11 +3,11 @@ import Link from 'next/link'
 
 export default function GalleryItem({ src, alt, text, desc, priority }) {
   const route = alt.toLowerCase().includes('code')
-    ? '/code'
+    ? '/gallery/code'
     : alt.toLowerCase().includes('website')
-    ? '/website'
+    ? '/gallery/website'
     : alt.toLowerCase().includes('dog')
-    ? '/dog'
+    ? '/gallery/dog'
     : '#'
 
   return (
